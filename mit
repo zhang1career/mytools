@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+
+<?php
+/**
+ * Created by PhpStorm.
+ * User: zhang
+ * Date: 22/08/2017
+ * Time: 1:10 PM
+ */
+
+use App\Lnmp\Lnmp;
+use Symfony\Component\Console\Application;
+
+require 'vendor/autoload.php';
+
+$app = new Application('My Tools', '1.0');
+
+$app->add(new Lnmp());
+
+$app->run();
