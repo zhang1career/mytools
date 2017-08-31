@@ -6,10 +6,13 @@
  * Time: 10:17 AM
  */
 
-namespace App\Components;
+namespace app\components;
 
 class Consts
 {
+    /**
+     * Error Codes
+     */
     const OK                                = 0;
     const INFO_DONE_WITHOUT_ACTION          = 1;
 

@@ -6,7 +6,7 @@
  * Time: 10:45 AM
  */
 
-namespace App\Components;
+namespace app\components;
 
 class Errors
 {
