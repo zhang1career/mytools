@@ -15,36 +15,37 @@ class Start
         $log = Log::getInstance();
 
         // create logs folder
-        list($error, $tip) = FileSystem::newFolder('/tmp/logs/nginx');
-        if ($error) {
-            $log->error($tip);
-            return $error;
+        list($err, $output) = FileSystem::newFolder('/tmp/logs/nginx');
+        if ($err) {
+            $log->error($output);
+            return $err;
         }
-        $log->info($tip);
+        $log->info($output);
 
-        list($error, $tip) = FileSystem::newFolder('/tmp/logs/php');
-        if ($error) {
-            $log->error($tip);
-            return $error;
+        list($err, $output) = FileSystem::newFolder('/tmp/logs/php');
+        if ($err) {
+            $log->error($output);
+            return $err;
         }
-        $log->info($tip);
+        $log->info($output);
 
-        list($error, $tip) = FileSystem::newFolder('/tmp/logs/risk-engine');
-        if ($error) {
-            $log->error($tip);
-            return $error;
+        list($err, $output) = FileSystem::newFolder('/tmp/logs/risk-engine');
+        if ($err) {
+            $log->error($output);
+            return $err;
         }
-        $log->info($tip);
+        $log->info($output);
 
         // start nginx
-        if (!file_exists('/usr/local/var/run/nginx.pid')) {
-            passthru('sudo nginx', $error);
+        exec("pgrep nginx", $output, $err);
+        if ($err) {
+            exec('sudo nginx', $output, $err);
         } else {
-            passthru('sudo nginx -s reload', $error);
+            exec('sudo nginx -s reload', $output, $err);
         }
 
         // start php-fpm
-        passthru('launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php56.plist');
-        passthru('launchctl load   -w ~/Library/LaunchAgents/homebrew.mxcl.php56.plist');
+        exec('launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php56.plist', $output, $err);
+        exec('launchctl load   -w ~/Library/LaunchAgents/homebrew.mxcl.php56.plist', $output, $err);
     }
 }
