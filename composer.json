@@ -14,12 +14,12 @@
     },
     "autoload": {
         "psr-4": {
-            "app\\": "/Users/zhang/Tools/src/"
+            "app\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "tests\\": "tests"
         }
     }
 }
