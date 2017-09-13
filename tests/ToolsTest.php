@@ -6,7 +6,7 @@
  * Time: 10:18 PM
  */
 
-namespace app;
+namespace phplab\commands\tests;
 
 class ToolsTest extends \PHPUnit_Framework_TestCase
 {

@@ -6,11 +6,17 @@
  * Time: 10:17 AM
  */
 
-namespace app\config;
+namespace phplab\commands\config;
 
 return [
     'info' => [
-        'app'       => 'My Commandline Tools',
-        'version'   => '1.0',
+        'app'     => 'My Commandline Tools',
+        'version' => '1.0',
+    ],
+    'db'   => [
+        'host'     => 'localhost',
+        'user'     => 'root',
+        'pass'     => '123123',
+        'database' => 'risk_engine',
     ],
 ];

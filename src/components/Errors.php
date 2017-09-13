@@ -6,7 +6,7 @@
  * Time: 10:45 AM
  */
 
-namespace app\components;
+namespace phplab\commands\components;
 
 class Errors
 {

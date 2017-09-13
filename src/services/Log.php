@@ -6,9 +6,9 @@
  * Time: 3:39 PM
  */
 
-namespace app\services;
+namespace phplab\commands\services;
 
-use app\components\Singleton;
+use phplab\commands\components\Singleton;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 

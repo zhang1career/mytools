@@ -6,7 +6,7 @@
  * Time: 3:39 PM
  */
 
-namespace app\components;
+namespace phplab\commands\components;
 
 class Singleton
 {

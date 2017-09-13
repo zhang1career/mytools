@@ -9,8 +9,9 @@
  * Time: 1:10 PM
  */
 
-use app\lnmp\Lnmp;
-use app\services\Config;
+use phplab\commands\db\Db;
+use phplab\commands\lnmp\Lnmp;
+use phplab\commands\services\Config;
 use Symfony\Component\Console\Application;
 
 require 'vendor/autoload.php';
@@ -19,5 +20,7 @@ $config = Config::getValue();
 $app = new Application($config['info']['app'], $config['info']['version']);
 
 $app->add(new Lnmp());
+
+$app->add(new Db());
 
 $app->run();

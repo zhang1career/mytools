@@ -1,11 +1,12 @@
 <?php
 
-namespace app\lnmp;
+namespace phplab\commands\lnmp;
 
-use app\components\filesystem;
-use app\services\Log;
+use phplab\commands\CommandInterface;
+use phplab\commands\components\filesystem;
+use phplab\commands\services\Log;
 
-class Start
+class Start implements CommandInterface
 {
     /**
      * @return string
@@ -47,5 +48,7 @@ class Start
         // start php-fpm
         exec('launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php56.plist', $output, $err);
         exec('launchctl load   -w ~/Library/LaunchAgents/homebrew.mxcl.php56.plist', $output, $err);
+
+        return $err;
     }
 }

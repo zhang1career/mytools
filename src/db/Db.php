@@ -1,22 +1,22 @@
 <?php
 
-namespace phplab\commands\lnmp;
+namespace phplab\commands\db;
 
 use phplab\commands\tools;
 use Symfony\Component\Console\Input\InputArgument;
 
-class Lnmp extends Tools
+class Db extends Tools
 {
     /**
      * full name
      * @var string
      */
-    static $NAME = 'lnmp';
+    static $NAME = 'db';
     /**
      * description
      * @var string
      */
-    static $DESCRIPTION = 'Start LNMP services.';
+    static $DESCRIPTION = 'Database services.';
     /**
      * arguments
      * @var array
@@ -25,12 +25,12 @@ class Lnmp extends Tools
         [
             'name' => 'action',
             'mode' => InputArgument::REQUIRED,
-            'description' => 'Action the lnmp to do, i.e. start, stop, restart',
+            'description' => 'Action the db to do, i.e. dump',
         ],
     ];
 
     /**
-     * Lnmp constructor.
+     * Db constructor.
      * @param null $name
      */
     public function __construct($name = null)
