@@ -1,10 +1,10 @@
 {
-    "name": "mytools",
+    "name": "phplab/commands",
     "description": "My Command Line Tools",
-    "keywords": ["commandline", "tools"],
+    "keywords": ["command", "console"],
     "license": "MIT",
     "type": "project",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.6.4",
         "symfony/console": "~3.3",
@@ -14,12 +14,12 @@
     },
     "autoload": {
         "psr-4": {
-            "app\\": "src"
+            "phplab\\commands\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "tests\\": "tests"
+            "phplab\\commands\\tests\\": "tests"
         }
     }
 }
