@@ -13,11 +13,13 @@ class Tools extends Command
      * @var string
      */
     static $NAME = 'undefined';
+
     /**
      * description
      * @var string
      */
     static $DESCRIPTION = 'undefined';
+
     /**
      * arguments
      * @var array
@@ -26,8 +28,10 @@ class Tools extends Command
 
     /** @var $args, argument values */
     protected $args;
+
     /** @var string $namepath */
     protected $namepath;
+
 
     public function __construct($name = null)
     {
@@ -49,11 +53,12 @@ class Tools extends Command
         $action = $this->namepath . '\\' . UCFirst(strtolower($this->getArgument('action')));
         /** @var CommandInterface $obj */
         $obj = new $action();
-        $value = $obj->run();
+        $value = $obj->run($this->args);
         $output->writeln("<info>$value</info>");
 
         return 0;
     }
+
 
     /**
      * get argument value by name
@@ -65,13 +70,19 @@ class Tools extends Command
         return isset($this->args[$name]) ? $this->args[$name] : null;
     }
 
+
     /**
      * configure command
      */
     protected function configure()
     {
-        $this->setName(static::$NAME)
-            ->setDescription(static::$DESCRIPTION);
+        $this
+            // the name of the command
+            ->setName(static::$NAME)
+            // the short description shown while running "mit list"
+            ->setDescription(static::$DESCRIPTION)
+            // the full command description shown when running the command with the "--help" option
+            ->setHelp('');
 
         foreach (static::$ARGUMENTS as $_v) {
             $this->addArgument($_v['name'], $_v['mode'], $_v['description']);

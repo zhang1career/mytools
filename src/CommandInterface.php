@@ -4,5 +4,5 @@ namespace phplab\commands;
 
 interface CommandInterface
 {
-    public function run();
+    public function run(array $args);
 }

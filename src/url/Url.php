@@ -1,22 +1,22 @@
 <?php
 
-namespace phplab\commands\lnmp;
+namespace phplab\commands\url;
 
 use phplab\commands\tools;
 use Symfony\Component\Console\Input\InputArgument;
 
-class Lnmp extends Tools
+class Url extends Tools
 {
     /**
      * full name
      * @var string
      */
-    static $NAME = 'lnmp';
+    static $NAME = 'url';
     /**
      * description
      * @var string
      */
-    static $DESCRIPTION = 'Start LNMP services.';
+    static $DESCRIPTION = 'URL Toolkits';
     /**
      * arguments
      * @var array
@@ -25,7 +25,12 @@ class Lnmp extends Tools
         [
             'name' => 'action',
             'mode' => InputArgument::REQUIRED,
-            'description' => 'Action the lnmp does, i.e. start, stop, restart',
+            'description' => 'Action the url toolkits do, i.e. encode, decode',
+        ],
+        [
+            'name' => 'value',
+            'mode' => InputArgument::REQUIRED,
+            'description' => 'value to be encoded to url, or decoded to array',
         ],
     ];
 

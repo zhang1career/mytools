@@ -9,18 +9,28 @@
  * Time: 1:10 PM
  */
 
-use phplab\commands\db\Db;
-use phplab\commands\lnmp\Lnmp;
-use phplab\commands\services\Config;
 use Symfony\Component\Console\Application;
+use phplab\commands\services\Config;
+
+use phplab\commands\db\Db;
+
+use phplab\commands\lnmp\Lnmp;
+use phplab\commands\url\Url;
 
 require 'vendor/autoload.php';
 
 $config = Config::getValue();
 $app = new Application($config['info']['app'], $config['info']['version']);
 
-$app->add(new Lnmp());
-
 $app->add(new Db());
 
-$app->run();
+$app->add(new Lnmp());
+$app->add(new Url());
+
+try {
+    $app->run();
+} catch (Exception $e)
+{
+    printf($e->getMessage());
+    return;
+}

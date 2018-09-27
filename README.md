@@ -12,3 +12,9 @@ My Command-Line Tools
 2.1.1 start lnmp
 
 > mit lnmp start
+
+
+2.2 url
+
+2.2.2 decode url
+> mit url decode 'www.google.com?ver=1&la=zh'
